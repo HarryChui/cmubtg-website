@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState,useEffect} from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,11 +8,28 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import BTGCover from "../images/btg-cover.png";
+import axios from 'axios';
 
 ReactGA.initialize("UA-104764221-10");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 function Projects() {
+
+  const [error,setError] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    async function getAPI() {
+      try{
+        const response = await axios.get(`http://localhost:1337/categories`)
+        setProjects(response.data);
+      } catch (error) {
+          setError(error)
+      }
+    }
+    getAPI()
+  },[])
+
   return (
     <FadeIn>
       <Helmet>
@@ -34,7 +51,12 @@ function Projects() {
       <Container className="mt-5 pt-5">
         <Row>
           <Col>
-            <p className="text-center">Page under construction</p>
+                { projects.map(project => (
+                <h1>
+                    {project.name}
+                    {/* <Link to={"member/"+member.andrewid}>{member.firstname} {member.lastname}</Link> */}
+                </h1>
+                ))}
           </Col>
         </Row>
       </Container>

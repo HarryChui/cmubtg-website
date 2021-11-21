@@ -72,7 +72,7 @@ function Member(){
                             {/* <iframe title="PDF" src={"http://localhost:1337"+member[0].resume[0].url}>
                                 <a href={"http://localhost:1337"+member[0].resume[0].url}>Download</a>
                             </iframe> */}
-                            <embed src={"http://localhost:1337"+member[0].resume[0].url} type="application/pdf" />
+                            {/* <embed src={"http://localhost:1337"+member[0].resume[0].url} type="application/pdf" /> */}
                         </div>
                     </Col>
                 </Row>

@@ -38,9 +38,16 @@ Also, take this time to ensure you are in the CMUBTG organization on GitHub.
   probably get dependency vulnerability warnings, but this unfortunately a
   normal aspect of npm development.
 
-- To edit and see your changes take place in real time, start a local
-  development server by running `npm start`. This should open a new browser tab
-  at `localhost:3000` with the cmubtg.com homepage after it loads.
+- To start the Strapi backend navigate to the `backend/` directory and run `npm run develop`.
+  The Strapi admin site will then be open at `localhost:1337/admin`. Navigate to this site.
+  Create a user and log in. On the left bar, go to "Settings", then click on "Roles" under
+  "USERS & PERMISSIONS PLUGIN". Click on "Public". Scroll to the "Permissions" box and click
+  "find" and "findone" for both the category and member tabs. Then click save on the top right.
+
+- To edit and see your changes take place in real time, navigate to the `frontend/`
+  directory. Start a local development server by running `npm start`. 
+  This should open a new browser tab at `localhost:3000` with the cmubtg.com 
+  homepage after it loads.
 
 > While running a server, your changes will 'hot reload' instantly on most
 > changes. If it looks like something isn't automatically refreshing, as is the
